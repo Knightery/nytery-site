@@ -1,240 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nytery — Coming soon</title>
-  <meta name="description" content="Nytery is coming soon. Something new is on its way. Get in touch at edwardd@nytery.com." />
-  <meta name="theme-color" content="#07080f" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nytery</title>
+<meta name="description" content="Nytery — a new company. Real company, not yet a real website. Contact edward@nytery.com.">
+<meta property="og:title" content="Nytery">
+<meta property="og:description" content="A real company. Not yet a real website.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nytery.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='white'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23111'%3EN%3C/text%3E%3C/svg%3E">
 
-  <!-- Open Graph / social preview -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nytery — Coming soon" />
-  <meta property="og:description" content="Something new is on its way." />
-  <meta property="og:url" content="https://nytery.com" />
-
-  <!-- Favicon: a small crescent, inline so there are no extra requests -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2307080f'/%3E%3Cpath d='M20.5 8a9 9 0 1 0 3.2 12.4A7.2 7.2 0 0 1 20.5 8z' fill='%23c8ccff'/%3E%3C/svg%3E" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg-0: #07080f;
-      --bg-1: #0e1122;
-      --ink: #edeef6;
-      --muted: #8b8fa6;
-      --accent: #8b7cff;   /* periwinkle */
-      --accent-2: #4ccee0; /* aurora cyan */
-      --line: rgba(255, 255, 255, 0.09);
-      --serif: "Fraunces", Georgia, "Times New Roman", serif;
-      --sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body { height: 100%; }
-
-    body {
-      font-family: var(--sans);
-      color: var(--ink);
-      background: var(--bg-0);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* ---- Signature: a slow nocturnal aurora behind the wordmark ---- */
-    .sky {
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(120% 90% at 50% -10%, #141834 0%, var(--bg-1) 38%, var(--bg-0) 78%);
-      z-index: 0;
-    }
-    .aurora {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(70px);
-      opacity: 0.5;
-      will-change: transform;
-    }
-    .aurora.a1 {
-      width: 46vmax; height: 46vmax;
-      left: -8vmax; top: -14vmax;
-      background: radial-gradient(circle at 50% 50%, rgba(139,124,255,0.55), transparent 62%);
-      animation: drift1 26s ease-in-out infinite alternate;
-    }
-    .aurora.a2 {
-      width: 40vmax; height: 40vmax;
-      right: -10vmax; top: -6vmax;
-      background: radial-gradient(circle at 50% 50%, rgba(76,206,224,0.40), transparent 62%);
-      animation: drift2 32s ease-in-out infinite alternate;
-    }
-    @keyframes drift1 {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(8vmax, 6vmax) scale(1.12); }
-    }
-    @keyframes drift2 {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(-7vmax, 5vmax) scale(1.08); }
-    }
-
-    /* faint star grain */
-    .stars {
-      position: fixed; inset: 0; z-index: 1; pointer-events: none;
-      background-image:
-        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.7), transparent),
-        radial-gradient(1px 1px at 75% 22%, rgba(255,255,255,0.5), transparent),
-        radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.45), transparent),
-        radial-gradient(1px 1px at 88% 64%, rgba(255,255,255,0.55), transparent),
-        radial-gradient(1px 1px at 12% 82%, rgba(255,255,255,0.4), transparent),
-        radial-gradient(1px 1px at 62% 88%, rgba(255,255,255,0.5), transparent);
-      opacity: 0.55;
-      animation: twinkle 6s ease-in-out infinite alternate;
-    }
-    @keyframes twinkle { from { opacity: 0.35; } to { opacity: 0.7; } }
-
-    /* ---- Content ---- */
-    main {
-      position: relative;
-      z-index: 2;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8vh 24px;
-      gap: 26px;
-    }
-
-    .eyebrow {
-      font-family: var(--sans);
-      font-size: clamp(11px, 1.6vw, 13px);
-      letter-spacing: 0.42em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding-left: 0.42em; /* balance the trailing letter-spacing */
-      animation: rise 0.9s cubic-bezier(.2,.7,.2,1) both;
-    }
-
-    .wordmark {
-      font-family: var(--serif);
-      font-weight: 340;
-      font-size: clamp(64px, 16vw, 168px);
-      line-height: 0.92;
-      letter-spacing: -0.02em;
-      background: linear-gradient(100deg, var(--ink) 0%, var(--ink) 30%, var(--accent) 46%, var(--accent-2) 56%, var(--ink) 72%, var(--ink) 100%);
-      background-size: 260% 100%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: rise 1s cubic-bezier(.2,.7,.2,1) both 0.08s, sheen 9s ease-in-out infinite 1.2s;
-    }
-    @keyframes sheen {
-      0%, 100% { background-position: 120% 50%; }
-      50%      { background-position: -20% 50%; }
-    }
-
-    .horizon {
-      width: min(280px, 60vw);
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--line) 20%, rgba(200,204,255,0.55) 50%, var(--line) 80%, transparent);
-      position: relative;
-      animation: rise 1s cubic-bezier(.2,.7,.2,1) both 0.16s;
-    }
-    .horizon::after {
-      content: "";
-      position: absolute; inset: -18px 30% auto 30%;
-      height: 40px;
-      background: radial-gradient(50% 100% at 50% 0%, rgba(139,124,255,0.30), transparent 70%);
-      animation: breathe 7s ease-in-out infinite;
-    }
-    @keyframes breathe { 0%,100% { opacity: 0.4; } 50% { opacity: 0.9; } }
-
-    .status {
-      font-family: var(--serif);
-      font-weight: 340;
-      font-style: italic;
-      font-size: clamp(19px, 3.2vw, 26px);
-      color: var(--ink);
-      animation: rise 1s cubic-bezier(.2,.7,.2,1) both 0.24s;
-    }
-
-    .blurb {
-      max-width: 34ch;
-      font-size: clamp(14px, 2vw, 15.5px);
-      line-height: 1.65;
-      color: var(--muted);
-      animation: rise 1s cubic-bezier(.2,.7,.2,1) both 0.3s;
-    }
-
-    .contact {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 6px;
-      padding: 13px 22px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 14px;
-      letter-spacing: 0.01em;
-      background: rgba(255,255,255,0.02);
-      backdrop-filter: blur(6px);
-      transition: border-color .25s ease, transform .25s ease, background .25s ease;
-      animation: rise 1s cubic-bezier(.2,.7,.2,1) both 0.36s;
-    }
-    .contact:hover { border-color: rgba(139,124,255,0.7); transform: translateY(-2px); background: rgba(139,124,255,0.08); }
-    .contact:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-    .contact .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 10px var(--accent-2); }
-
-    footer {
-      position: fixed;
-      bottom: 22px; left: 0; right: 0;
-      z-index: 2;
-      text-align: center;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: rgba(139,143,166,0.7);
-    }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .aurora, .stars, .wordmark, .horizon::after,
-      .eyebrow, .status, .blurb, .contact, .horizon { animation: none !important; }
-      .wordmark { background-position: 50% 50%; }
-    }
-  </style>
+<style>
+  /* Same plain document as knightery.github.io: white page, black text,
+     one system font, hairline rules, default links. No design system. */
+  :root {
+    --ink: #111111;
+    --gray: #6b6b6b;
+    --hairline: #dddddd;
+    --up: #0a7d43;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto;
+    padding: 48px 22px 80px;
+    max-width: 680px;
+    background: #ffffff;
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1, p { margin: 0; }
+  h1 { font-size: 28px; line-height: 1.25; }
+  p { margin-top: 10px; }
+  hr { border: none; border-top: 1px solid var(--hairline); margin: 36px 0 0; }
+  .gray { color: var(--gray); }
+  .small { font-size: 13px; }
+  .status {
+    display: inline-block; margin-top: 16px;
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--up);
+  }
+  .status .dot {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--up); margin-right: 6px; vertical-align: 1px;
+  }
+</style>
 </head>
 <body>
-  <div class="sky" aria-hidden="true">
-    <div class="aurora a1"></div>
-    <div class="aurora a2"></div>
-  </div>
-  <div class="stars" aria-hidden="true"></div>
 
-  <main>
-    <p class="eyebrow">Est. 2026</p>
-    <h1 class="wordmark">Nytery</h1>
-    <div class="horizon" aria-hidden="true"></div>
-    <p class="status">Something is on its way.</p>
-    <p class="blurb">We're putting the finishing touches on something new. In the meantime, we'd love to hear from you.</p>
-    <a class="contact" href="mailto:edwardd@nytery.com">
-      <span class="dot" aria-hidden="true"></span>
-      edwardd@nytery.com
-    </a>
-  </main>
+<h1>Nytery</h1>
+<p class="gray">Est. 2026</p>
 
-  <footer>© 2026 Nytery · nytery.com</footer>
+<p>A real company. Not yet a real website.</p>
+<p>That part's coming. Until then, if you need something, email me.</p>
+
+<p>
+  <a href="mailto:edward@nytery.com">edward@nytery.com</a> ·
+  <a href="https://www.linkedin.com/in/edwardliu-" rel="noopener">LinkedIn</a> ·
+  <a href="https://github.com/Knightery" rel="noopener">GitHub</a>
+</p>
+
+<span class="status"><span class="dot"></span>Building</span>
+
+<hr>
+
+<p class="small gray">© 2026 Nytery</p>
+
 </body>
 </html>
